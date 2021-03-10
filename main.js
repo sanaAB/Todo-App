@@ -8,15 +8,13 @@ function addItem()
 		alert("Please enter a valid input");
 	}
 	else
-	{
-		const template = `<li class="todo-item">${item}
-		 <button id="delete">Delete item</button>
-		 <button id="Edit">Edit item</button></li>`;
-		//ulList.appendChild = template;
-		ulList.innerHTML += template;
-		console.log(ulList)
-		const deleteBtn =  document.getElementById("delete");
-		deleteBtn.addEventListener("click", deleteButton)
+	{	
+			const template = `<li class="todo-item">${item}
+			<button id="delete">Delete item</button>
+			<button id="Edit">Edit item</button></li>`;
+			ulList.innerHTML += template;
+			const deleteBtn =  document.getElementById("delete");
+			deleteBtn.addEventListener("click", deleteButton);
 	}
 }
 const form = document.getElementById("todoForm");
@@ -28,12 +26,12 @@ form.addEventListener("submit", (event)=> {
 })
 
 function deleteButton(event){
-	event.currentTarget = removeChild();
+	console.log(this.parentElement);
+
 	//deleteBtn.onclick =  deleteButton;
 	//console.log(event);
 	
 	//const listItem = event.currentTarget;
--/	//console.log(listItem);
 
 	//listItem.innerHTML = "";
 	//ulList.removeChild(listItem);
