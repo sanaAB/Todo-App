@@ -1,41 +1,31 @@
-const ulList = document.getElementById("todoList");
-
-function addItem()
-{
-	var item = document.getElementById("todoInput").value;
-	if (item == "")
-	{
-		alert("Please enter a valid input");
-	}
-	else
-	{	
-			const template = `<li class="todo-item">${item}
-			<button id="delete">Delete item</button>
-			<button id="Edit">Edit item</button></li>`;
-			ulList.innerHTML += template;
-			const deleteBtn =  document.getElementById("delete");
-			deleteBtn.addEventListener("click", deleteButton);
-	}
-}
 const form = document.getElementById("todoForm");
 form.addEventListener("submit", (event)=> {
 	event.preventDefault();
 	addItem();
-	ClearInputField();
-
 })
 
-function deleteButton(event){
-	console.log(this.parentElement);
+function addItem() {
+	var item = document.getElementById("todoInput").value;
+	if (item === "")
+	{
+		alert("Please enter a valid input");
+	}
+	else
+	{	var text = document.createTextNode(item);
+		var newItem = document.createElement("li");
+		newItem.appendChild(text);
+		document.getElementById("todoList").appendChild(newItem);
+		const deleteBtn =  document.createElement("button");
+		newItem.appendChild(deleteBtn);
+		deleteBtn.innerHTML = "delete item";
+		deleteBtn.addEventListener("click", deleteButton);
+		editButton(newItem);
+		ClearInputField();
+	}
+}	
 
-	//deleteBtn.onclick =  deleteButton;
-	//console.log(event);
-	
-	//const listItem = event.currentTarget;
-
-	//listItem.innerHTML = "";
-	//ulList.removeChild(listItem);
-	//deleteBtn.onclick =  del = () =>{listElement.innerHTML ="" ;}
+function deleteButton(){
+	this.parentNode.remove();
 }
 
 function editButton(listElement)
@@ -57,37 +47,3 @@ function clearAllItems()
 
 const ClearInputField = () => document.getElementById("todoInput").value = "";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function addItem() {
-// 	// store user value
-// 	var item = document.getElementById("todoInput").value;
-// 	if (item === "")
-// 	{
-// 		alert("Please enter a valid input");
-// 	}
-// 	else
-// 	{	var text = document.createTextNode(item);
-// 		var newItem = document.createElement("li");
-// 		newItem.appendChild(text);
-// 		document.getElementById("todoList").appendChild(newItem);
-// 		deleteButton(newItem);
-// 		editButton(newItem);
-// 		ClearInputField();
-// 	}
-// }

@@ -1,3 +1,51 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  /* Reset CSS */
+
+
 .addedClass {
 	color: red;
 }
@@ -13,6 +61,7 @@ body{
 
 h1 {
 	color: white;
+	text-shadow:  rgb(89, 7, 100);
 }
 .form__div{
 	display: flex;
@@ -20,9 +69,24 @@ h1 {
 	justify-content: space-around;
 	flex-direction: column;
 	margin: auto;
-	border: 3px solid black;
 	padding: 10px;
 }
+
+input[type=text] {
+	border: 4px solid rgb(89, 7, 100);
+	border-radius: 8px;
+	padding: 12px 20px;
+	
+
+  }
+
+  button{
+	border: 4px solid  rgb(89, 7, 100);
+	border-radius: 8px;
+	background-color: rgb(213, 191, 216);
+	padding: 12px 28px;
+	
+  }
 
 @media only screen and (min-width: 600px) {
 	body{

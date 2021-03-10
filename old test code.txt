@@ -1,0 +1,39 @@
+const ulList = document.getElementById("todoList");
+
+function addItem()
+{
+	var item = document.getElementById("todoInput").value;
+	if (item == "")
+	{
+		alert("Please enter a valid input");
+	}
+	else
+	{	
+			const template = `<li class="todo-item">${item}
+			<button id="delete">Delete item</button>
+			<button id="Edit">Edit item</button></li>`;
+			ulList.innerHTML += template;
+			const deleteBtn =  document.getElementById("delete");
+			deleteBtn.addEventListener("click", deleteButton);
+	}
+}
+const form = document.getElementById("todoForm");
+form.addEventListener("submit", (event)=> {
+	event.preventDefault();
+	addItem();
+	ClearInputField();
+
+})
+
+function deleteButton(event){
+	console.log(this.parentElement);
+
+	//deleteBtn.onclick =  deleteButton;
+	//console.log(event);
+	
+	//const listItem = event.currentTarget;
+
+	//listItem.innerHTML = "";
+	//ulList.removeChild(listItem);
+	//deleteBtn.onclick =  del = () =>{listElement.innerHTML ="" ;}
+}
