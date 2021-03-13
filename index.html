@@ -15,21 +15,23 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-        		<div class="col-2"></div>
-      			<div class="col-8 form-group">
+      			<div class="col-10">
 					<h3 class="h_style">To Do List App</h3>
 					<form id="todoForm" class="form__div">
 					 	<input type="text" id="todoInput" required  placeholder="New todo task">
 					 <div class= "button_style">
 						<button type="submit">Add Item</button>
 						<button type="submit" onclick="clearAllItems()">Clear all </button>
-						</div>
+					 </div>
 					</form>
-					<div class="ul_style"><ul id="todoList"></ul></div>
-				<div class="col-2">
-			</div>
+					<div>
+						<ul id="todoList"></ul>
+					</div>
+		    	</div>
 		</div>
-      </div>
+	</div>
+
+
 
 		<script src="main.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

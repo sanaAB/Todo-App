@@ -1,26 +1,30 @@
 const form = document.getElementById("todoForm");
+const itemsList = document.getElementById("todoList");
+
 form.addEventListener("submit", (event)=> {
 	event.preventDefault();
 	addItem();
+	ClearInputField();
 })
 
 function addItem() {
-	var item = document.getElementById("todoInput").value;
+	const item = document.getElementById("todoInput").value;
 	if (item === "")
 	{
 		alert("Please enter a valid input");
 	}
 	else
-	{	var text = document.createTextNode(item);
-		var newItem = document.createElement("li");
+	{	const text = document.createTextNode(item);
+		const newItem = document.createElement("li");
 		newItem.appendChild(text);
+		newItem.className ="li_style";
 		document.getElementById("todoList").appendChild(newItem);
 		const deleteBtn =  document.createElement("button");
 		newItem.appendChild(deleteBtn);
-		deleteBtn.innerHTML = "delete item";
+		deleteBtn.innerHTML = "Delete";
 		deleteBtn.addEventListener("click", deleteButton);
 		editButton(newItem);
-		ClearInputField();
+
 	}
 }	
 
@@ -30,16 +34,18 @@ function deleteButton(){
 
 function editButton(listElement)
 {
-	var editBtn = document.createElement("button");
+	const editBtn = document.createElement("button");
 	listElement.appendChild(editBtn);
-	editBtn.innerHTML = "Edit item";
+	editBtn.innerHTML = "Edit";
+	// const checkBox_btn = document.createElement("checkbox");
+	// listElement.appendChild(checkBox_btn);
+	// checkBox_btn.innerHTML = "active";
 }
 
 
 function clearAllItems()
 {	
 	alert("Are you sure you want to delete all of your tasks?")
-	var itemsList = document.getElementById("todoList");
 	console.log(itemsList)
 	while (itemsList.hasChildNodes()) {  
 		itemsList.removeChild(itemsList.firstChild);
@@ -48,3 +54,8 @@ function clearAllItems()
 
 const ClearInputField = () => document.getElementById("todoInput").value = "";
 
+
+
+
+
+  
