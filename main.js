@@ -38,6 +38,7 @@ function editButton(listElement)
 
 function clearAllItems()
 {	
+	alert("Are you sure you want to delete all of your tasks?")
 	var itemsList = document.getElementById("todoList");
 	console.log(itemsList)
 	while (itemsList.hasChildNodes()) {  
