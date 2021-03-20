@@ -155,6 +155,12 @@ input[type=text] {
     margin: 0;
   }
 
+  footer{
+    background-color: black;
+    position: relative;
+
+  }
+
 @media only screen and (min-width: 600px) {
 	body{
 		background-size: 100%;
