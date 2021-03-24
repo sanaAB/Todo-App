@@ -180,5 +180,10 @@ input[type=text] {
   input[type=text] {
     width: 75%;
   }
+
+.buttons p{
+   max-width:800px;
+   word-wrap:break-word;
+  }
   
 }
