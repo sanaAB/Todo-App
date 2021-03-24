@@ -104,6 +104,11 @@ input[type=text] {
   margin: 5px;   
   }
 
+  .buttons p{
+    max-width:80px;
+    word-wrap:break-word;
+  }
+
 
   ul li {
   border-radius: 8px;
