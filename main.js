@@ -1,10 +1,9 @@
 const form = document.getElementById("todoForm");
 const itemsList = document.getElementById("todoList");
-//let isEditable = true;
 const clearAllBtn = document.querySelector("ClearAllBtn");
-let todos = [];
+//let todos = [];
 const ClearInputField = () => document.getElementById("todoInput").value = "";
-
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 
 form.addEventListener("submit", (event)=> {
@@ -34,7 +33,7 @@ itemsList.addEventListener("click", (event) => {
 					//currTodo.isEditable = true;
 					console.log("checkbox is unchecked");
 				}
-				render();
+				saveAndRender();
 	}
 
 		else if (clickedEl.tagName.toLowerCase() === "p") {
@@ -49,12 +48,9 @@ itemsList.addEventListener("click", (event) => {
 				  const currTodo = todos.find((todo) => clickedItemId === todo.id);
 				  currTodo.title = newText;
 				  //currTodo.isEditable = false;
-				  render();	
+				  saveAndRender();
 				}
 			};
-	}
-	else if (clickedEl.classList.contains("edit")){
-		editButton();
 	}
 });
 
@@ -74,8 +70,8 @@ function addItem() {
 			isDone: false
 		  };
 		  todos.push(newTodo);
-		  render();
-	 }
+		  saveAndRender();
+		}
 
 };	
 
@@ -86,48 +82,57 @@ function deleteButton(targetItem){
 		return todo.id !== clickedItemId;
 	  });
 
-	render();
-};
+	  saveAndRender();
+	};
 
 
-function editButton()
+function DoneTasks()
 {	doneTasks = [];
-	console.log("inside edit func")
-	for(todo in todos){
-		if (todo.isDone === true)
-		doneTasks.push(todo);
+	for(let i=0; i< todos.length ; i++){
+		if (todos[i].isDone === true)
+		doneTasks.push(todos[i]);
 	} 
-	render();
-	console.log(doneTasks);
+	// if(doneTasks.length == 0){alert("You haven't completed any task");
+	// render(todos);}
+	render(doneTasks);
 	return doneTasks;
-
-
-	// const editBtn = document.createElement("button");
-	// listElement.appendChild(editBtn);
-	// editBtn.innerHTML = "Edit";
 }
 
+// function allTasks(){
+// 	const allTodos =[];
+// 	for(let i=0; i< todos.length ; i++){
+// 		allTodos.push(todos[i]);
+// }
+// 	render(allTodos);
+// 	return(allTodos);
+// }
+
+//const  allTasks = () => render(todos);
 
 function clearAllItems()
 {	
-	//alert("Are you sure you want to delete all of your tasks?")
-	console.log(itemsList)
 	while (itemsList.hasChildNodes()) {  
 		itemsList.removeChild(itemsList.firstChild);
 	  }
 }
 
 const ClearButton = () =>{
+	alert("Are you sure you want to delete all of your todos?");
 	clearAllItems();
 	todos = [];
+	saveAndRender();
+
 } 
 
 
 function render() {
+	// if (newToDos){
+	// 	todos = newToDos;
+	// }
 	clearAllItems();
 	todos.forEach((todo) => {
 		const template = `
-		<li data-id=${todo.id} class='${todo.isDone ? "checked-todo" : ""}' >
+		<li data-id=${todo.id}  class='${todo.isDone ? "checked-todo li_style"  : "li_style"} ' >
 		<div class='buttons'>
 			<input type='checkbox' ${todo.isDone ? "checked" : null}  />
 		  	<p contenteditable='${!todo.isDone}' id="p"  >
@@ -136,13 +141,27 @@ function render() {
 		</div>
 		<div class="delete_Btn">
 		  <button class="delete">delete</button>
-		  <button class="edit">edit</button>
 		</div>
 		  </li>
 		`;
 		itemsList.insertAdjacentHTML("beforeend", template);
 	});
 };
+
+function save() {
+	localStorage.setItem("todos", JSON.stringify(todos));
+  }
+  
+  function saveAndRender() {
+	save();
+	render();
+  }
+  
+  function init() {
+	render();
+  }
+  
+  init();
 
 
 
