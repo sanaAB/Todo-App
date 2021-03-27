@@ -1,6 +1,6 @@
 const form = document.getElementById("todoForm");
 const itemsList = document.getElementById("todoList");
-let isEditable = true;
+//let isEditable = true;
 const clearAllBtn = document.querySelector("ClearAllBtn");
 let todos = [];
 const ClearInputField = () => document.getElementById("todoInput").value = "";
@@ -21,22 +21,18 @@ itemsList.addEventListener("click", (event) => {
 	}
 	else if (clickedEl.tagName.toLowerCase() === "input"){
 		const checkedBox = clickedEl;
-		//checkedBox.checked =true;
-		console.log("you clicked now   "+ clickedEl);
 		const checkedBoxId = clickedEl.parentElement.parentElement.dataset.id;
-		console.log("The id of the clicked element is   "+ checkedBoxId);
 		const currTodo = todos.find((todo) => checkedBoxId === todo.id);
-		console.log("current todo is Not checked so it's editable " + currTodo.isEditable);
-				if(checkedBox.checked){
+				if(clickedEl.checked){
 					currTodo.isDone = true;
-					currTodo.isEditable = false;
-					console.log(currTodo);
+					//currTodo.isEditable = false;
+					console.log(`"checkbox is checked" ${currTodo}`);
 				}
 				else 
 				{
 					currTodo.isDone = false;
-					currTodo.isEditable = true;
-					console.log(currTodo);
+					//currTodo.isEditable = true;
+					console.log("checkbox is unchecked");
 				}
 				render();
 	}
@@ -57,8 +53,9 @@ itemsList.addEventListener("click", (event) => {
 				}
 			};
 	}
-
-
+	else if (clickedEl.classList.contains("edit")){
+		editButton();
+	}
 });
 
 
@@ -93,11 +90,21 @@ function deleteButton(targetItem){
 };
 
 
-function editButton(listElement)
-{
-	const editBtn = document.createElement("button");
-	listElement.appendChild(editBtn);
-	editBtn.innerHTML = "Edit";
+function editButton()
+{	doneTasks = [];
+	console.log("inside edit func")
+	for(todo in todos){
+		if (todo.isDone === true)
+		doneTasks.push(todo);
+	} 
+	render();
+	console.log(doneTasks);
+	return doneTasks;
+
+
+	// const editBtn = document.createElement("button");
+	// listElement.appendChild(editBtn);
+	// editBtn.innerHTML = "Edit";
 }
 
 
@@ -120,10 +127,10 @@ function render() {
 	clearAllItems();
 	todos.forEach((todo) => {
 		const template = `
-		<li data-id=${todo.id} class="li_style">
+		<li data-id=${todo.id} class='${todo.isDone ? "checked-todo" : ""}' >
 		<div class='buttons'>
-			<input type='checkbox' checkbox=${todo.isDone}  />
-		  	<p contenteditable=${todo.isEditable} id="p">
+			<input type='checkbox' ${todo.isDone ? "checked" : null}  />
+		  	<p contenteditable='${!todo.isDone}' id="p"  >
 			  ${todo.title}
 			</p>
 		</div>
