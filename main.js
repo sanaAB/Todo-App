@@ -94,7 +94,7 @@ function DoneTasks()
 	} 
 	// if(doneTasks.length == 0){alert("You haven't completed any task");
 	// render(todos);}
-	render(doneTasks);
+	renderDoneItems(doneTasks);
 	return doneTasks;
 }
 
@@ -107,7 +107,7 @@ function DoneTasks()
 // 	return(allTodos);
 // }
 
-//const  allTasks = () => render(todos);
+const  allTasks = () => init(todos);
 
 function clearAllItems()
 {	
@@ -126,9 +126,6 @@ const ClearButton = () =>{
 
 
 function render() {
-	// if (newToDos){
-	// 	todos = newToDos;
-	// }
 	clearAllItems();
 	todos.forEach((todo) => {
 		const template = `
@@ -146,6 +143,29 @@ function render() {
 		`;
 		itemsList.insertAdjacentHTML("beforeend", template);
 	});
+};
+
+function renderDoneItems(newTodos) {
+	if (newTodos){
+		todos1 = newTodos;
+	}
+   clearAllItems();
+   todos1.forEach((todo) => {
+	   const template = `
+	   <li data-id=${todo.id}  class='${todo.isDone ? "checked-todo li_style"  : "li_style"} ' >
+	   <div class='buttons'>
+		   <input type='checkbox' ${todo.isDone ? "checked" : null}  />
+			 <p contenteditable='${!todo.isDone}' id="p"  >
+			 ${todo.title}
+		   </p>
+	   </div>
+	   <div class="delete_Btn">
+		 <button class="delete">delete</button>
+	   </div>
+		 </li>
+	   `;
+	   itemsList.insertAdjacentHTML("beforeend", template);
+   });
 };
 
 function save() {
