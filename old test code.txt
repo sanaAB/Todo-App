@@ -37,3 +37,392 @@ function deleteButton(event){
 	//ulList.removeChild(listItem);
 	//deleteBtn.onclick =  del = () =>{listElement.innerHTML ="" ;}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  /* Reset CSS */
+
+
+.addedClass {
+	color: red;
+}
+
+html *{
+		font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body{
+	background-size: 100% 100% 100% 100%;
+	background-image: url("clouds.jpg");
+}
+
+.h_style {
+	color: rgb(255, 255, 255);
+	text-shadow: 2px 2px  hsl(293, 89%, 11%);
+  padding: 25px 0;
+  font-family: cursive;
+}
+
+.form__div{
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+	justify-content: space-around;
+	margin: auto;
+}
+
+.li_style{
+
+}
+
+input[type=text] {
+	border: 3px solid  hsl(293, 89%, 11%);
+	border-radius: 8px;
+	padding: 12px 20px;
+  font-family: cursive;
+  }
+
+
+.button_style{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  float: right;
+}
+
+  button{
+  border: 3px solid  hsl(293, 89%, 11%);
+	background-color: hsl(294, 12%, 53%);
+	padding: 8px;
+  border-radius: 8px;
+  color: white;
+  text-shadow: 1px 1px hsl(293, 89%, 11%) ;
+  font-family: cursive;
+  margin: 5px;   
+  }
+
+  .buttons p{
+    max-width:80px;
+    word-wrap:break-word;
+  }
+
+
+  ul li {
+  border-radius: 8px;
+  position:relative;
+  cursor: pointer;
+  padding: 12px 8px 12px 40px;
+  margin-top: 10px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  font-family: cursive;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+
+  ul li:nth-child(odd) {
+    background: #f9f9f9;
+  }
+  ul li:hover {
+    background: #ddd;
+  }
+
+  ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  }
+
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+
+  footer{
+    background-color: black;
+    position: relative;
+
+  }
+
+@media only screen and (min-width: 600px) {
+	body{
+		background-size: 100%;
+		background-image: url("clouds.jpg");
+  }
+  .form__div{
+    display: flex ;
+    align-items: center;
+    flex-direction: row;
+  	justify-content: space-around;
+  }
+  input[type=text] {
+    width: 75%;
+  }
+
+.buttons p{
+   max-width:800px;
+   word-wrap:break-word;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	else if (clickedEl.classList.contains("edit")) {
+		console.log("you clicked edit");
+		editBtn = event.target;
+		console.log("event.target is"+ editBtn);
+		const paragraphEl = clickedEl.parentElement.parentElement.querySelector("p");
+		console.log("a is"+ paragraphEl);
+		isEditable =true;
+		const oldText = paragraphEl.innerHTML;
+		console.log("a is"+ oldText);
+		let containsClass=paragraphEl.dataset("contentEditable");
+		containsClass = true;
+		console.log(containsClass);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// const template = `<li class="li_style">
+	// 	<div class='buttons'>
+	// 		<p contenteditable = ${isEditable}>${item}</p>
+	// 		<button type="submit" id="deleteBtn" class="delete">
+	// 			delete</button>
+	// 		<button type="submit">edit</button>
+	// 		</div>
+	// 		</li>`;
+
+
+		// itemsList.innerHTML += template;
+
+
+	// const template = `
+	//   <li>
+	// 	<p contenteditable=${isEditable}>${newText}</p>
+	// 	<button class="delete">delete</button>
+	// 	</li>
+	//   `;
+
+
+
+	// if(checkedBox.checked)
+	// {	
+	// 	console.log("inside if checked == true     "+currTodo.isDone);
+	// 	currTodo.parentElement.parentElement	.isEditable =false;
+	// 	currTodo.isDone = true;
+	// 	console.log(currTodo.isDone);
+	// }
+	
+
+			// }
+			// else {
+			// 	console.log(checkedBox.checked);
+
+			// 	currTodo.isDone =false;
+			// 	currTodo.isEditable = true;
+			// }
+
+
+
+
+// const text = document.createTextNode(item);
+// 		const newItem = document.createElement("li");
+// 		newItem.appendChild(text);
+// 		newItem.className ="li_style";
+// 		document.getElementById("todoList").appendChild(newItem);
+// 		const deleteBtn =  document.createElement("button");
+// 		newItem.appendChild(deleteBtn);
+// 		deleteBtn.innerHTML = "Delete";
+// 		deleteBtn.addEventListener("click", deleteButton);
+// 		editButton(newItem);
+
+		//deleteBtn = document.getElementById("deleteBtn");
+		//console.log(deleteBtn);
+		//deleteBtn.addEventListener("click", deleteButton);
+		// deleteBtn.addEventListener("click", (event) => {
+		// 	const clickedEl = event.target;
+		// 	console.log(clickedEl.parentNode.parentNode);
+		// 	console.log(clickedEl.parentElement.parentElement);
+		// 	if (clickedEl.classList.contains("delete")) {
+		// 		deleteButton(clickedEl);
+		// 	}
+		//deleteButton(clickedEl);
+	// 	}
+	// 	);  
+
+	
+	// console.log(targetItem); 
+	// targetItem.parentElement.parentElement.remove();
+	//this.parentNode.parentNode.remove();
+
+		// const checkBox_btn = document.createElement("checkbox");
+	// listElement.appendChild(checkBox_btn);
+	// checkBox_btn.innerHTML = "active";	
+
+
+
+
+
+	// else if (clickedEl.classList.contains("edit")) {
+	// 	console.log("you clicked edit");
+	// 	editBtn = event.target;
+	// 	console.log("event.target is"+ editBtn);
+	// 	const a = clickedEl.parentElement.parentElement.querySelector("p");
+	// 	console.log("a is"+ a);
+	// 	a.isEditable =true;
+	// 	a.onkeydown = (event) => {
+	// 			console.log("inside onKeyDown");
+	// 			if (event.key === "Enter") {
+	// 				event.preventDefault(); // prevents line breaks
+	// 				const newText = a.textContent;
+	// 				if (a.textContent.trim().length < 2) {
+	// 					return alert("Todo item cannot be empty or less then two chars.");
+	// 				  }
+	// 				  const clickedItemId = a.parentElement.parentElement.dataset.id;
+	// 				  const currTodo = todos.find((todo) => clickedItemId === todo.id);
+	// 				  currTodo.title = newText;
+	// 				  //currTodo.isEditable = false;
+	// 				  render();	
+	// 				}
+	// 			};

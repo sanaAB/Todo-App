@@ -75,7 +75,9 @@ body{
 }
 
 .li_style{
-
+  justify-content: space-around;
+  align-items: baseline;
+  align-content: space-around;
 }
 
 input[type=text] {
@@ -105,9 +107,12 @@ input[type=text] {
   }
 
   .buttons p{
-    max-width:80px;
+    max-width:150px;
     word-wrap:break-word;
   }
+
+  .delete_Btn{
+align-self: flex-end;  }
 
 
   ul li {
@@ -136,35 +141,22 @@ input[type=text] {
     background: #ddd;
   }
 
-  ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
-
-  ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  }
-
   ul{
     padding: 0;
     margin: 0;
   }
 
-  footer{
-    background-color: black;
-    position: relative;
-
-  }
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:hsl(293, 89%, 11%);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 10px;
+}
 
 @media only screen and (min-width: 600px) {
 	body{
@@ -182,8 +174,15 @@ input[type=text] {
   }
 
 .buttons p{
-   max-width:800px;
+   max-width:1000px;
    word-wrap:break-word;
+  }
+
+  .li_style{
+    justify-content: space-around;
+    align-items: baseline;
+    align-content: space-around;
+    flex-wrap: wrap;
   }
   
 }
